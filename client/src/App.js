@@ -1,9 +1,8 @@
-import logo from './logo.svg';
 import './App.css';
 import React from "react";
 import io from "socket.io-client";
 
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 
 import {
     BrowserRouter as Router,
@@ -38,23 +37,23 @@ function App() {
 
     }, [])
 
-      return (
-          <Router>
-              <div className="App">
-                  <Routes>
-                      <Route path = "/" element={<Home
+    return (
+        <Router>
+            <div className="App">
+                <Routes>
+                    <Route path="/" element={<Home
                         socket={socket}
                         isConnected={isConnected}
-                      />}/>
-                      <Route path = "/index" element={<Navigate replace to="/"/>}/>
-                      <Route path = "/lobby" element={<Lobby
+                    />} />
+                    <Route path="/index" element={<Navigate replace to="/" />} />
+                    <Route path="/lobby" element={<Lobby
                         socket={socket}
                         isConnected={isConnected}
-                      />}/>
-                  </Routes>
-              </div>
-          </Router>
-      );
+                    />} />
+                </Routes>
+            </div>
+        </Router>
+    );
 }
 
 export default App;

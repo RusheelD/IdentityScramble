@@ -11,7 +11,7 @@ var debug = require('debug')('react-backend:server');
 var http = require('http');
 const socketIO = require('socket.io');
 const redis = require('redis');
-const {LobbyManager} = require('../utils/lobbyManager');
+const { LobbyManager } = require('../utils/lobbyManager');
 
 /**
  * Get port from environment and store in Express.
