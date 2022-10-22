@@ -1,0 +1,80 @@
+body {
+    background-color: var(--backgroundPrimary);
+}
+
+.lobby-header-text {
+    font-size: xx-large;
+    color: var(--textPrimary);
+    user-select: none;
+    margin-top: 2rem;
+}
+
+.lobby-text-line {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.start-buttons-box {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    align-self: center;
+}
+
+.game-buttons {
+    vertical-align: middle;
+    font-size: xx-large;
+    margin: 0.5rem;
+    background: var(--inputPrimary);
+    color: var(--textPrimary);
+    padding: 0.5rem;
+    box-shadow: var(--shadows);
+    border-radius: 0.75rem;
+    border: transparent;
+    cursor: pointer;
+}
+
+.lobby-box {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+}
+
+.members-text-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-top: 0.75rem;
+}
+
+.lobby-bottom-text {
+    font-size: xx-large;
+    color: var(--textPrimary);
+    user-select: none;
+    flex-direction: column;
+}
+
+.footer {
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.members-text-line {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+}
+
+.current-text-line {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+    color: gold;
+}
+

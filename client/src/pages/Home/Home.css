@@ -1,0 +1,42 @@
+body {
+    background-color: var(--backgroundPrimary);
+}
+
+.home-header-text{
+    font-size: xx-large;
+    color: var(--textPrimary);
+    user-select: none;
+}
+
+.game-buttons-box {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    align-self: center;
+}
+
+.text-control {
+    width: 15rem;
+}
+
+.game-buttons {
+    vertical-align: middle;
+    font-size: xx-large;
+    margin: 0.5rem;
+    background: var(--inputPrimary);
+    color: var(--textPrimary);
+    padding: 0.5rem;
+    box-shadow: var(--shadows);
+    border-radius: 0.75rem;
+    border: transparent;
+    cursor: pointer;
+    text-align: center;
+}
+
+.home-box {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    margin-top: 5rem;
+}
+
