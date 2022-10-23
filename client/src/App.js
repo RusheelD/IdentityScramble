@@ -19,9 +19,7 @@ const socket = io();
 function App() {
 
     const [isConnected, setIsConnected] = useState(socket.connected);
-
     useEffect(() => {
-
         socket.on('connect', () => {
             setIsConnected(true);
         })
@@ -35,7 +33,7 @@ function App() {
             socket.off('disconnect');
         }
 
-    }, [])
+    }, []);
 
     return (
         <Router>

@@ -1,5 +1,5 @@
-var {Lobby} = require('./lobby');
-var {Player} = require('./player');
+var { Lobby } = require('./lobby');
+var { Player } = require('./player');
 var socketIO = require('socket.io');
 
 class LobbyManager {
@@ -7,7 +7,6 @@ class LobbyManager {
     constructor(socket) {
         this.lobbies = {};
         this.socket = socket;
-        this.setupBasicSocket();
     }
 
     generateLobby(hostID) {
@@ -102,4 +101,4 @@ class LobbyManager {
 
 }
 
-module.exports = {LobbyManager};
+module.exports = { LobbyManager };

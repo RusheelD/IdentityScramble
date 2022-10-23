@@ -6,7 +6,7 @@
 
 require('dotenv').config()
 
-var app = require('../app');
+var app = require('..');
 var debug = require('debug')('react-backend:server');
 var http = require('http');
 const socketIO = require('socket.io');
@@ -59,7 +59,8 @@ async function connectClient(client) {
  */
 
 var io = socketIO(server);
-var manager = new LobbyManager(io)
+var lobbyManager = new LobbyManager(io)
+lobbyManager.setupBasicSocket();
 
 /**
  * Listen on provided port, on all network interfaces.
