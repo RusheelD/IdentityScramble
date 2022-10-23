@@ -9,9 +9,7 @@ import "./App.css";
 
 //components
 import HomePage from "./general_components/HomePage";
-import AudioConductorPage from "./general_components/AudioConductorPage";
-import AudioPlayerPage from "./general_components/AudioPlayerPage";
-
+import Lobby from "./general_components/Lobby";
 import background from "../src/images/background.png";
 
 function App() {
@@ -27,10 +25,10 @@ function App() {
             <HomePage />
           </Route>
           <Route exact path="/:id/host">
-            <AudioConductorPage />
+            <Lobby />
           </Route>
           <Route exact path="/:id/player">
-            <AudioPlayerPage />
+            <Lobby />
           </Route>
         </Switch>
       </div>

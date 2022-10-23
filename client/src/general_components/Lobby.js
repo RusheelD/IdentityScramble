@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router";
-import AudioRecorder from "../medium_components/AudioRecorder";
 import ListPlayers from "../medium_components/ListPlayers";
-import VidElement from "../small_components/VidElement";
 import axiosConfig from "../configs/axiosconfigs";
 
-const AudioPlayerPage = () => {
+const Lobby = () => {
   const { id } = useParams();
   const { state } = useLocation();
   const { lobby } = state;
-  const [embeddedLink, setEmbeddedLink] = useState("");
 
-  useEffect(() => {
+  console.log(lobby);
+
+  {/*useEffect(() => {
     const interval = setInterval(() => {
       console.log("testing");
-      axiosConfig
+
+      {/*axiosConfig
         .get(`/${lobby}/embeddedLink`)
         .then((link) => {
           console.log(link.data);
@@ -27,6 +27,7 @@ const AudioPlayerPage = () => {
 
     return () => clearInterval(interval);
   });
+  */}
 
   return (
     <div className="text-center">
@@ -37,10 +38,8 @@ const AudioPlayerPage = () => {
       <div className="fixed-bottom mb-5">
         <ListPlayers />
       </div>
-      <AudioRecorder />
-      <VidElement embeddedLink={embeddedLink} />
     </div>
   );
 };
 
-export default AudioPlayerPage;
+export default Lobby;

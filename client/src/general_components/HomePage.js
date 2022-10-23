@@ -4,25 +4,34 @@ import axiosConfig from "../configs/axiosconfigs";
 import whiteLogo from "../images/white_logo_3.png";
 import blackFooter from "../images/dark.png";
 import styled from "styled-components";
+import axios from "axios";
 
 const HomePage = () => {
   const [code, setCode] = useState("");
+  const [isHosting, setHostLobby] = useState(true);
   const [name, setName] = useState("");
+  const [isCodeValid, setCodeValid] = useState(false);
   const history = useHistory();
 
   let generateLobbyCode = () => {
     let code = "";
     let alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    for (var i = 1; i <= 5; i++) {
+    for (var i = 1; i <= 4; i++) {
       code += alphabet.charAt(Math.floor(Math.random() * alphabet.length));
     }
 
     return code;
   };
 
-  let enterLobbyCode = (e) => {
-    const newCode = e.target.value.toUpperCase();
+  let convertCodeToUpperCase = (e) => {
+    const newCode = e ? e.toUpperCase() : "";
     setCode(newCode);
+    setCodeValid(newCode.length == 4);
+    setHostLobby(newCode.length == 0);
+  }
+
+  let enterOrHostLobby = (e) => {
+    e.preventDefault();
 
     if (newCode.length == 5) {
       axiosConfig
@@ -70,12 +79,6 @@ const HomePage = () => {
       });
   };
 
-  const sectionStyle = {
-    backgroundImage: `url(${blackFooter})`,
-    width: 440,
-    marginBottom: 20,
-  };
-
   return (
     <div class="position-relative">
       <div class="row">
@@ -88,7 +91,7 @@ const HomePage = () => {
                 type="text"
                 class="form-control fs-4"
                 value={code}
-                onChange={(e) => setCode(e.target.value)}
+                onChange={(e) => convertCodeToUpperCase(e.target.value)}
                 id="example"
                 aria-describedby="emailHelp"
                 placeholder="ENTER THE CODE"
@@ -108,9 +111,10 @@ const HomePage = () => {
             <div className="pt-4 mt-3 ">
               <button
                 class="text-center btn btn-primary w-50 fs-2"
-                onClick={(e) => createLobby(e)}
+                onClick={(e) => enterOrCreateLobby(e)}
+                disabled={!isHosting && !isCodeValid}
               >
-                PLAY
+                {isHosting ? "HOST" : "PLAY"}
               </button>
             </div>
             {/*<img
