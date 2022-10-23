@@ -114,7 +114,7 @@ const processing = async (data) => {
       B64Chunks.push(B64Chunk);
 
       buffers.push(buffer);
-    } catch {}
+    } catch { }
   }
 
   for (var i = 1; i < B64Chunks.length; i++) {
@@ -129,7 +129,7 @@ const processing = async (data) => {
     let output = merger.export(merger.mergeAudio(buffers));
 
     merger.download(output.blob);
-  } catch {}
+  } catch { }
 
   return "2";
 };

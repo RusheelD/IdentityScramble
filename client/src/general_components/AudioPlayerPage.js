@@ -23,7 +23,7 @@ const AudioPlayerPage = () => {
         .catch((err) => {
           console.log(err.message);
         });
-    }, 1500);
+    }, 200);
 
     return () => clearInterval(interval);
   });

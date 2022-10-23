@@ -35,7 +35,7 @@ const AudioConductorPage = () => {
             .then((res) => res.data)
             .then((res) => console.log(processing(res)));
         }),
-        2000
+        200
       )
       .catch((err) => console.log(err.message));
   };

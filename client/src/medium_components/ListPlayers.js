@@ -19,7 +19,7 @@ const ListPlayers = () => {
         .catch(function (error) {
           console.log(error);
         });
-    }, 2000);
+    }, 200);
 
     return () => clearInterval(interval);
   });

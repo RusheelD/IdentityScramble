@@ -3,6 +3,7 @@ import { useHistory } from "react-router";
 import axiosConfig from "../configs/axiosconfigs";
 import whiteLogo from "../images/white_logo_3.png";
 import blackFooter from "../images/dark.png";
+import styled from "styled-components";
 
 const HomePage = () => {
   const [code, setCode] = useState("");
@@ -59,7 +60,7 @@ const HomePage = () => {
       })
       .then(() => {
         const location = {
-          pathname: `${code}/conductor`,
+          pathname: `${code}/host`,
           state: {
             name: name,
             lobby: code,
@@ -76,46 +77,49 @@ const HomePage = () => {
   };
 
   return (
-    <div>
-      <div class="row min-vh-100">
+    <div class="position-relative">
+      <div class="row">
         <div class="col-sm"></div>
-        <div class="col-sm my-auto float-none text-center">
-          <img
-            src={whiteLogo}
-            alt="..."
-            class="img m-auto float-none mb-3"
-            width="150"
-          />
+        <div class="col-sm pt-lg-10 float-none text-center mt-lg-3">
+
           <form>
-            <div class="form-group w-50 text-center m-auto float-none">
+            <div class="form-group w-80 text-center m-auto float-none mb-4">
               <input
                 type="text"
-                class="form-control"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
+                class="form-control fs-4"
+                value={code}
+                onChange={(e) => setCode(e.target.value)}
                 id="example"
                 aria-describedby="emailHelp"
-                placeholder="Enter name"
+                placeholder="ENTER THE CODE"
               />
             </div>
-            <div className="pt-3 text-center">
-              <button
-                class="btn btn-primary w-50"
-                onClick={(e) => createLobby(e)}
-              >
-                Create Lobby
-              </button>
-            </div>
-            <div class="form-group pt-3 center">
+            <div class="form-group w-80 text-center m-auto float-none mb-4">
               <input
                 type="text"
-                value={code}
-                onChange={(e) => enterLobbyCode(e)}
-                class="form-control bg-warning text-center text-black w-50 m-auto float-none"
-                id="exampleInputPassword1"
-                placeholder="Enter Lobby Code"
+                class="form-control fs-4"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                id="example2"
+                aria-describedby="emailHelp"
+                placeholder="ENTER YOUR NAME"
               />
             </div>
+            <div className="pt-4 mt-3 ">
+              <button
+                class="text-center btn btn-primary w-50 fs-2"
+                onClick={(e) => createLobby(e)}
+              >
+                PLAY
+              </button>
+            </div>
+            {/*<img
+              src={whiteLogo}
+              alt="..."
+              class="img m-auto float-none mb-3"
+              width="150"
+  /> */}
+
           </form>
         </div>
         <div class="col-sm"></div>

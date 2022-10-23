@@ -21,12 +21,12 @@ function App() {
 
   return (
     <Router>
-      <div className="container-fluid min-vh-100 view" style={sectionStyle}>
+      <div className="container-fluid min-vh-100 view" style={{ backgroundColor: '#222222' }}>
         <Switch>
           <Route exact path="/">
             <HomePage />
           </Route>
-          <Route exact path="/:id/conductor">
+          <Route exact path="/:id/host">
             <AudioConductorPage />
           </Route>
           <Route exact path="/:id/player">
@@ -34,7 +34,7 @@ function App() {
           </Route>
         </Switch>
       </div>
-    </Router>
+    </Router >
   );
 }
 
