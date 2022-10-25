@@ -8,8 +8,8 @@ import {
 import "./App.css";
 
 //components
-import HomePage from "./general_components/HomePage";
-import Lobby from "./general_components/Lobby";
+import HomeLogin from "./general_components/HomeLogin";
+import Lobby from "./general_components/Lobby2";
 import background from "../src/images/background.png";
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
       <div className="container-fluid min-vh-100 view" style={{ backgroundColor: '#222222' }}>
         <Switch>
           <Route exact path="/">
-            <HomePage />
+            <HomeLogin />
           </Route>
           <Route exact path="/:id/host">
             <Lobby />

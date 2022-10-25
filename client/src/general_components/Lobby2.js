@@ -8,7 +8,6 @@ const Lobby = () => {
   const { state } = useLocation();
   const { lobby } = state;
 
-  const [choice, setChoice] = useState(0);
   const [question, setQuestion] = useState("");
 
   {/*useEffect(() => {
@@ -43,24 +42,16 @@ const Lobby = () => {
           <div className=".align-middle pt-5 vh-100">
             <div className=".align-middle pt-5 vh-100">
               <div className="align-middle pt-5 input-group-lg vh-100">
-                <div class="row justify-content-center container-max h-15 w-60">
-                  <h1 class="text-info fs-3 p-4">Which animal do you prefer?</h1>
-                  <input
+                <div class="row d-flex justify-content-center container-full h-15 input-group-lg">
+
+                  <textarea
                     type="text"
-                    disabled="true"
-                    class="form-control bg-primary fs-4 w-25 p-4 m-2 text-center text-light font-monospace"
-                    value="PANDAS"
+                    class="form-control fs-4 w-50 h-1000 font-monospace"
+                    value={question}
+                    onChange={e => setQuestion(e.target.value)}
                     id="example2"
                     aria-describedby="emailHelp"
-                  />
-                  <input
-                    type="text"
-                    disabled="true"
-                    onClick={console.log("dadf")}
-                    class="form-control fs-4 w-25 p-4 m-2 text-center font-monospace"
-                    value="LIONS"
-                    id="example2"
-                    aria-describedby="emailHelp"
+                    placeholder="WHAT IS ONE OF YOUR FAVORITE _________?"
                   />
                 </div>
               </div>
