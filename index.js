@@ -1,12 +1,15 @@
 const express = require("express");
 const app = express();
 const path = require("path");
-const port = process.env.PORT || 3400;
-require("dotenv").config();
+const port = process.env.PORT | 5600;
+const env = require("dotenv");
+const monk = require("monk");
+
+env.config();
 
 //Connect to monk database
-const mongoURI = `localhost/database`;
-let db = require("monk")(process.env.MONGOATLAS_URL || mongoURI);
+const localDataBase = `localhost/database`;
+let db = monk(process.env.MONGODB_DATABASE || localDataBase);
 console.log("Connected to " + db._connectionURI);
 
 //Middleware
@@ -19,22 +22,16 @@ const bodyParser = require("body-parser");
 app.use(bodyParser.json()); //support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); //support encoded bodies
 
-//create a lobby
-app.post("/:lobby", (req, res) => {
-  const lobby = req.params.lobby;
-  db.get(lobby).then(res.json(`${lobby} created`));
-});
-
-//post user to lobby
+//insert user into a lobby's database collection
 app.post("/:lobby/user", (req, res) => {
   const name = req.body.name;
+  const role = req.body.role;
   const room = db.get(req.params.lobby);
 
   room
-    .insert({ name: name, duration: 0, mp3: "" })
+    .insert({ name: name, role: role, points: 0 })
     .then((doc) => res.json(doc))
     .then(() => console.log(`${name} successfuly joined ${req.params.lobby}`))
-    .catch((err) => console.log(err.message));
 });
 
 //get all users
@@ -138,10 +135,9 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "./build")));
 }
 
-/*app.listen(port, () => {
-  console.log(`server has started on port ${port}`);q
-});*/
-
+app.listen(port, (err) => {
+  console.log(`Connected to port ${port}`);
+});
 
 //app.get("/*", (req, res) => {
  // res.sendFile(path.join(path.join(__dirname, "./build/index.html")));
